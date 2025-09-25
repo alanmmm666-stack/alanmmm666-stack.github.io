@@ -2,6 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<!-- Meta viewport añadido para que los móviles escalen correctamente -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canales de Comunicación en Telecomunicaciones</title>
 <style>
 body {
@@ -149,7 +151,7 @@ footer {
     margin: 20px auto;
 }
 
-/* --------- RESPONSIVE PARA CELULAR Y TABLET --------- */
+/* --------- RESPONSIVE PARA CELULAR Y TABLET (ORIGINAL) --------- */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -177,9 +179,58 @@ footer {
         height: auto; /* Ajusta imágenes sin deformarlas */
     }
 }
+
+/* ---------------- OVERRIDE: FORZAR 2 COLUMNAS EN MOVIL ----------------
+   (Este bloque está colocado AL FINAL y usa !important para anular el
+   comportamiento anterior. Solo lo añadimos para mostrar en móvil el mismo
+   diseño de escritorio como pediste).
+*/
+@media (max-width: 768px) {
+    /* Forzar dos columnas aunque la pantalla sea pequeña */
+    .contenedor,
+    .video-contenedor,
+    .cuestion-ref-contenedor {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* Ajustes para evitar que sea demasiado estrecho */
+    .tarjeta {
+        max-width: 95% !important;
+        margin: 12px auto !important;
+        padding: 16px !important;
+    }
+
+    /* Mantener imágenes proporcionales y no cortarlas */
+    .tarjeta img,
+    .video-imagen img {
+        height: auto !important;
+        max-height: 240px !important;
+    }
+
+    /* Mantener altura de iframe similar a escritorio */
+    iframe {
+        height: 200px !important;
+    }
+
+    /* Permitir scroll horizontal en caso de que la pantalla sea muy estrecha
+       (esto evita que el diseño se rompa). */
+    body, html {
+        overflow-x: auto;
+    }
+
+    /* Hacer que la barra de navegación no ocupe tanto vertical y permita scroll */
+    nav {
+        flex-direction: row !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding: 8px 6px !important;
+    }
+    nav a { display: inline-block; padding: 6px 10px !important; }
+}
 </style>
 </head>
 <body>
+
 <!-- Barra de navegación -->
 <nav>
     <a href="#introduccion">Introducción</a>
@@ -203,7 +254,14 @@ footer {
 <section id="introduccion">
     <div class="tarjeta">
         <h2>Introducción</h2>
-        <p> En telecomunicaciones, un <strong>canal de comunicación</strong> es el camino por el cual viaja la información desde un emisor hasta un receptor. Estos canales se dividen en <b>medios guiados</b> (cuando la señal viaja por un cable físico) y <b>medios no guiados</b> (cuando viaja por el aire o el espacio, sin necesidad de cables). Ambos tipos de medios son fundamentales para la comunicación moderna que usamos en internet, telefonía y transmisión de datos. </p>
+        <p>
+            En telecomunicaciones, un <strong>canal de comunicación</strong> es el camino por el cual viaja la información
+            desde un emisor hasta un receptor. Estos canales se dividen en <b>medios guiados</b>
+            (cuando la señal viaja por un cable físico) y <b>medios no guiados</b>
+            (cuando viaja por el aire o el espacio, sin necesidad de cables).
+            Ambos tipos de medios son fundamentales para la comunicación moderna que usamos en internet,
+            telefonía y transmisión de datos.
+        </p>
     </div>
 </section>
 
@@ -212,7 +270,10 @@ footer {
     <div class="video-contenedor">
         <div class="video-box">
             <h2>Video Explicativo</h2>
-            <iframe src="https://www.youtube.com/embed/WoOi3narDKI" title="Medios de transmisión - Telecomunicaciones" frameborder="0" allowfullscreen>
+            <iframe src="https://www.youtube.com/embed/WoOi3narDKI"
+                    title="Medios de transmisión - Telecomunicaciones"
+                    frameborder="0"
+                    allowfullscreen>
             </iframe>
         </div>
         <div class="video-imagen">
@@ -225,8 +286,12 @@ footer {
 <section id="guiados">
     <div class="tarjeta">
         <h2>Medios Guiados (Con Cables)</h2>
-        <p> Los medios guiados transmiten la información a través de cables físicos. Ejemplos: par trenzado, cable coaxial y fibra óptica. Son muy usados en redes locales, telefonía e internet. </p>
+        <p>
+            Los medios guiados transmiten la información a través de cables físicos.
+            Ejemplos: par trenzado, cable coaxial y fibra óptica. Son muy usados en redes locales, telefonía e internet.
+        </p>
         <img src="https://1.bp.blogspot.com/-cdY9cM1UW3g/Xu3Ghudq1SI/AAAAAAABHMA/tXUVrYXqmJw0Zjoua_jfhXlEivTv2N5_QCK4BGAsYHg/s1748/kisspng-network-cables-optical-fiber-cable-optics-internet-cable-5b2c75a12314b0.0042298115296403531437.png" alt="Cables telecomunicaciones">
+
         <div class="ventajas">
             <h3>Ventajas</h3>
             <ul>
@@ -248,8 +313,12 @@ footer {
 <section id="noguiados">
     <div class="tarjeta">
         <h2>Medios No Guiados (Sin Cables)</h2>
-        <p> En los medios no guiados, la señal viaja por el aire usando ondas electromagnéticas. Ejemplos: radio, microondas y satélite. Son muy usados en telefonía móvil, televisión satelital y Wi-Fi. </p>
+        <p>
+            En los medios no guiados, la señal viaja por el aire usando ondas electromagnéticas.
+            Ejemplos: radio, microondas y satélite. Son muy usados en telefonía móvil, televisión satelital y Wi-Fi.
+        </p>
         <img src="https://williantab.weebly.com/uploads/7/9/3/1/79316810/3837671_orig.jpg" alt="Comunicación inalámbrica">
+
         <div class="ventajas">
             <h3>Ventajas</h3>
             <ul>
@@ -280,6 +349,7 @@ footer {
             <li><b>Económico:</b> ¿Cómo reducir la brecha digital que afecta a comunidades rurales y de bajos recursos?</li>
         </ul>
     </div>
+
     <div class="bibliografia" id="referencias">
         <h2>Referencias</h2>
         <ul>
@@ -291,7 +361,9 @@ footer {
 </section>
 
 <footer>
-    <p><b>Equipo 1:</b> Alan Ramírez Melo, Karen Yaritza Montero Orosco | <b>Materia:</b> Telecomunicaciones | <b>Tema:</b> Tipos de Canales de Comunicación</p>
+    <p><b>Equipo 1:</b> Alan Ramírez Melo, Karen Yaritza Montero Orosco |
+    <b>Materia:</b> Telecomunicaciones |
+    <b>Tema:</b> Tipos de Canales de Comunicación</p>
 </footer>
 </body>
 </html>
