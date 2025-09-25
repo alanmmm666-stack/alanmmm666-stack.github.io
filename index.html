@@ -180,45 +180,34 @@ footer {
     }
 }
 
-/* ---------------- OVERRIDE: FORZAR 2 COLUMNAS EN MOVIL ----------------
-   (Este bloque está colocado AL FINAL y usa !important para anular el
-   comportamiento anterior. Solo lo añadimos para mostrar en móvil el mismo
-   diseño de escritorio como pediste).
-*/
+/* ---------------- OVERRIDE: FORZAR 2 COLUMNAS EN MOVIL ---------------- */
 @media (max-width: 768px) {
-    /* Forzar dos columnas aunque la pantalla sea pequeña */
     .contenedor,
     .video-contenedor,
     .cuestion-ref-contenedor {
         grid-template-columns: 1fr 1fr !important;
     }
 
-    /* Ajustes para evitar que sea demasiado estrecho */
     .tarjeta {
         max-width: 95% !important;
         margin: 12px auto !important;
         padding: 16px !important;
     }
 
-    /* Mantener imágenes proporcionales y no cortarlas */
     .tarjeta img,
     .video-imagen img {
         height: auto !important;
         max-height: 240px !important;
     }
 
-    /* Mantener altura de iframe similar a escritorio */
     iframe {
         height: 200px !important;
     }
 
-    /* Permitir scroll horizontal en caso de que la pantalla sea muy estrecha
-       (esto evita que el diseño se rompa). */
     body, html {
         overflow-x: auto;
     }
 
-    /* Hacer que la barra de navegación no ocupe tanto vertical y permita scroll */
     nav {
         flex-direction: row !important;
         overflow-x: auto !important;
@@ -226,6 +215,41 @@ footer {
         padding: 8px 6px !important;
     }
     nav a { display: inline-block; padding: 6px 10px !important; }
+}
+
+/* ---------- AJUSTES ESPECÍFICOS PARA GUIADOS / NO GUIADOS / REFERENCIAS ---------- */
+@media (max-width: 768px) {
+    /* Medios guiados y no guiados */
+    #guiados .tarjeta,
+    #noguiados .tarjeta {
+        max-width: 95% !important;
+        margin: 15px auto !important;
+        padding: 18px !important;
+        text-align: center;
+    }
+
+    /* Cuestionamientos y referencias: una sola columna en móvil */
+    .cuestion-ref-contenedor {
+        grid-template-columns: 1fr !important;
+        max-width: 95% !important;
+        margin: 15px auto !important;
+    }
+
+    .cuestionamientos,
+    .bibliografia {
+        padding: 16px !important;
+        text-align: left;
+    }
+
+    .cuestionamientos h2,
+    .bibliografia h2 {
+        font-size: 1.3rem;
+    }
+
+    .bibliografia ul li {
+        word-wrap: break-word;
+        font-size: 0.95rem;
+    }
 }
 </style>
 </head>
