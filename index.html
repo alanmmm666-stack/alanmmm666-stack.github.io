@@ -1,314 +1,297 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Canales de Comunicación en Telecomunicaciones</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f8fb;
-            color: #333;
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<title>Canales de Comunicación en Telecomunicaciones</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f8fb;
+    color: #333;
+    scroll-behavior: smooth;
+}
 
-        /* Barra de navegación fija */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #0077b6;
-            color: white;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px 0;
-            z-index: 1000;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
-        }
+/* Barra de navegación fija */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0077b6;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #00b4d8;
+}
+header {
+    background: #0077b6;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px; /* para no quedar debajo de nav */
+}
+header img {
+    height: 60px;
+}
+header h1 {
+    margin: 0;
+}
+section {
+    padding: 30px;
+    margin-top: 30px;
+}
+.tarjeta {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    border-left: 6px solid #0077b6;
+}
+.tarjeta h2 {
+    color: #0077b6;
+    margin-top: 0;
+}
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 30px;
+}
+.tarjeta img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-top: 15px;
+}
+.ventajas {
+    background: #e0f7fa;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+.ventajas h3 {
+    margin-top: 0;
+    color: #006064;
+}
+iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.cuestionamientos, .bibliografia {
+    background: #fff3e0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+.cuestionamientos h2 {
+    color: #e65100;
+    margin-top: 0;
+}
+.bibliografia h2 {
+    color: #0077b6;
+    margin-top: 0;
+}
+footer {
+    background: #0077b6;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+.video-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+.video-box, .video-imagen {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+.video-box h2 {
+    color: #0077b6;
+    margin-top: 0;
+}
+.video-imagen img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+.cuestion-ref-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+/* --------- RESPONSIVE PARA CELULAR Y TABLET --------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 
-        nav a:hover {
-            color: #00b4d8;
-        }
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
 
-        header {
-            background: #0077b6;
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 50px; /* para no quedar debajo de nav */
-        }
+    .contenedor,
+    .video-contenedor,
+    .cuestion-ref-contenedor {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
 
-        header img {
-            height: 60px;
-        }
+    iframe {
+        height: 180px; /* Video más chico */
+    }
 
-        header h1 {
-            margin: 0;
-        }
-
-        section {
-            padding: 30px;
-            margin-top: 30px;
-        }
-
-        .tarjeta {
-            background: white;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 900px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            border-left: 6px solid #0077b6;
-        }
-
-        .tarjeta h2 {
-            color: #0077b6;
-            margin-top: 0;
-        }
-
-        .contenedor {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .tarjeta img {
-            max-width: 100%;
-            height: 200px;
-            object-fit: contain;
-            margin-top: 15px;
-        }
-
-        .ventajas {
-            background: #e0f7fa;
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .ventajas h3 {
-            margin-top: 0;
-            color: #006064;
-        }
-
-        iframe {
-            width: 100%;
-            height: 200px;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-
-        .cuestionamientos, .bibliografia {
-            background: #fff3e0;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .cuestionamientos h2 {
-            color: #e65100;
-            margin-top: 0;
-        }
-
-        .bibliografia h2 {
-            color: #0077b6;
-            margin-top: 0;
-        }
-
-        footer {
-            background: #0077b6;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-
-        .video-contenedor {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 900px;
-            margin: 20px auto;
-        }
-
-        .video-box, .video-imagen {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .video-box h2 {
-            color: #0077b6;
-            margin-top: 0;
-        }
-
-        .video-imagen img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-        }
-
-        .cuestion-ref-contenedor {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 20px auto;
-        }
-
-    </style>
+    .tarjeta img,
+    .video-imagen img {
+        height: auto; /* Ajusta imágenes sin deformarlas */
+    }
+}
+</style>
 </head>
 <body>
+<!-- Barra de navegación -->
+<nav>
+    <a href="#introduccion">Introducción</a>
+    <a href="#video">Video</a>
+    <a href="#guiados">Medios Guiados</a>
+    <a href="#noguiados">Medios No Guiados</a>
+    <a href="#cuestionamientos">Cuestionamientos</a>
+    <a href="#referencias">Referencias</a>
+</nav>
 
-    <!-- Barra de navegación -->
-    <nav>
-        <a href="#introduccion">Introducción</a>
-        <a href="#video">Video</a>
-        <a href="#guiados">Medios Guiados</a>
-        <a href="#noguiados">Medios No Guiados</a>
-        <a href="#cuestionamientos">Cuestionamientos</a>
-        <a href="#referencias">Referencias</a>
-    </nav>
+<!-- Header con imagen al lado del título -->
+<header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGu50YCh2FH5XA1ZuN5x0ANWn-F6jBpRDHw&s" alt="Icono telecomunicaciones">
+    <div>
+        <h1>Tipos de Canales de Comunicación</h1>
+        <p>Telecomunicaciones - Pagina Web</p>
+    </div>
+</header>
 
-    <!-- Header con imagen al lado del título -->
-    <header>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGu50YCh2FH5XA1ZuN5x0ANWn-F6jBpRDHw&s" alt="Icono telecomunicaciones">
-        <div>
-            <h1>Tipos de Canales de Comunicación</h1>
-            <p>Telecomunicaciones - Pagina Web</p>
+<!-- Introducción -->
+<section id="introduccion">
+    <div class="tarjeta">
+        <h2>Introducción</h2>
+        <p> En telecomunicaciones, un <strong>canal de comunicación</strong> es el camino por el cual viaja la información desde un emisor hasta un receptor. Estos canales se dividen en <b>medios guiados</b> (cuando la señal viaja por un cable físico) y <b>medios no guiados</b> (cuando viaja por el aire o el espacio, sin necesidad de cables). Ambos tipos de medios son fundamentales para la comunicación moderna que usamos en internet, telefonía y transmisión de datos. </p>
+    </div>
+</section>
+
+<!-- Video explicativo con imagen al lado -->
+<section id="video">
+    <div class="video-contenedor">
+        <div class="video-box">
+            <h2>Video Explicativo</h2>
+            <iframe src="https://www.youtube.com/embed/WoOi3narDKI" title="Medios de transmisión - Telecomunicaciones" frameborder="0" allowfullscreen>
+            </iframe>
         </div>
-    </header>
-
-    <!-- Introducción -->
-    <section id="introduccion">
-        <div class="tarjeta">
-            <h2>Introducción</h2>
-            <p>
-                En telecomunicaciones, un <strong>canal de comunicación</strong> es el camino por el cual viaja la información
-                desde un emisor hasta un receptor. Estos canales se dividen en <b>medios guiados</b>
-                (cuando la señal viaja por un cable físico) y <b>medios no guiados</b>
-                (cuando viaja por el aire o el espacio, sin necesidad de cables).
-                Ambos tipos de medios son fundamentales para la comunicación moderna que usamos en internet,
-                telefonía y transmisión de datos.
-            </p>
+        <div class="video-imagen">
+            <img src="https://png.pngtree.com/png-clipart/20230813/original/pngtree-cute-kid-thinking-idea-vector-thoughts-vector-illustration-vector-picture-image_10504209.png" alt="Niño pensando">
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Video explicativo con imagen al lado -->
-    <section id="video">
-        <div class="video-contenedor">
-            <div class="video-box">
-                <h2>Video Explicativo</h2>
-                <iframe src="https://www.youtube.com/embed/WoOi3narDKI"
-                        title="Medios de transmisión - Telecomunicaciones"
-                        frameborder="0"
-                        allowfullscreen>
-                </iframe>
-            </div>
-            <div class="video-imagen">
-                <img src="https://png.pngtree.com/png-clipart/20230813/original/pngtree-cute-kid-thinking-idea-vector-thoughts-vector-illustration-vector-picture-image_10504209.png" alt="Niño pensando">
-            </div>
-        </div>
-    </section>
-
-    <!-- Medios Guiados -->
-    <section id="guiados">
-        <div class="tarjeta">
-            <h2>Medios Guiados (Con Cables)</h2>
-            <p>
-                Los medios guiados transmiten la información a través de cables físicos.
-                Ejemplos: par trenzado, cable coaxial y fibra óptica. Son muy usados en redes locales, telefonía e internet.
-            </p>
-            <img src="https://1.bp.blogspot.com/-cdY9cM1UW3g/Xu3Ghudq1SI/AAAAAAABHMA/tXUVrYXqmJw0Zjoua_jfhXlEivTv2N5_QCK4BGAsYHg/s1748/kisspng-network-cables-optical-fiber-cable-optics-internet-cable-5b2c75a12314b0.0042298115296403531437.png" alt="Cables telecomunicaciones">
-
-            <div class="ventajas">
-                <h3>Ventajas</h3>
-                <ul>
-                    <li>Mayor seguridad en la transmisión.</li>
-                    <li>Alta velocidad y capacidad de datos.</li>
-                    <li>Menor interferencia externa.</li>
-                </ul>
-                <h3>Desventajas</h3>
-                <ul>
-                    <li>Costo elevado en instalación (ej. fibra óptica).</li>
-                    <li>Dificultad para ampliaciones largas.</li>
-                    <li>Mayor mantenimiento físico de los cables.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Medios No Guiados -->
-    <section id="noguiados">
-        <div class="tarjeta">
-            <h2>Medios No Guiados (Sin Cables)</h2>
-            <p>
-                En los medios no guiados, la señal viaja por el aire usando ondas electromagnéticas.
-                Ejemplos: radio, microondas y satélite. Son muy usados en telefonía móvil, televisión satelital y Wi-Fi.
-            </p>
-            <img src="https://williantab.weebly.com/uploads/7/9/3/1/79316810/3837671_orig.jpg" alt="Comunicación inalámbrica">
-
-            <div class="ventajas">
-                <h3>Ventajas</h3>
-                <ul>
-                    <li>Fácil instalación y movilidad.</li>
-                    <li>Cobertura amplia sin necesidad de cables.</li>
-                    <li>Acceso en lugares remotos.</li>
-                </ul>
-                <h3>Desventajas</h3>
-                <ul>
-                    <li>Menor seguridad (riesgo de interferencias).</li>
-                    <li>Velocidad más limitada comparada con fibra óptica.</li>
-                    <li>Pueden verse afectados por el clima.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cuestionamientos y Referencias lado a lado -->
-    <section class="cuestion-ref-contenedor">
-        <div class="cuestionamientos" id="cuestionamientos">
-            <h2>Cuestionamientos Éticos, Ecológicos y Sociales</h2>
-            <p>El uso de canales de comunicación plantea varios cuestionamientos:</p>
+<!-- Medios Guiados -->
+<section id="guiados">
+    <div class="tarjeta">
+        <h2>Medios Guiados (Con Cables)</h2>
+        <p> Los medios guiados transmiten la información a través de cables físicos. Ejemplos: par trenzado, cable coaxial y fibra óptica. Son muy usados en redes locales, telefonía e internet. </p>
+        <img src="https://1.bp.blogspot.com/-cdY9cM1UW3g/Xu3Ghudq1SI/AAAAAAABHMA/tXUVrYXqmJw0Zjoua_jfhXlEivTv2N5_QCK4BGAsYHg/s1748/kisspng-network-cables-optical-fiber-cable-optics-internet-cable-5b2c75a12314b0.0042298115296403531437.png" alt="Cables telecomunicaciones">
+        <div class="ventajas">
+            <h3>Ventajas</h3>
             <ul>
-                <li><b>Ético:</b> ¿Cómo proteger la privacidad y seguridad de los datos transmitidos por estos canales?</li>
-                <li><b>Ecológico:</b> ¿Qué hacer con los desechos electrónicos y el impacto ambiental de antenas y cables?</li>
-                <li><b>Histórico:</b> ¿Cómo han transformado la historia de la humanidad las telecomunicaciones desde el telégrafo hasta la fibra óptica?</li>
-                <li><b>Político:</b> ¿Qué papel juegan los gobiernos en garantizar acceso equitativo a la comunicación?</li>
-                <li><b>Económico:</b> ¿Cómo reducir la brecha digital que afecta a comunidades rurales y de bajos recursos?</li>
+                <li>Mayor seguridad en la transmisión.</li>
+                <li>Alta velocidad y capacidad de datos.</li>
+                <li>Menor interferencia externa.</li>
+            </ul>
+            <h3>Desventajas</h3>
+            <ul>
+                <li>Costo elevado en instalación (ej. fibra óptica).</li>
+                <li>Dificultad para ampliaciones largas.</li>
+                <li>Mayor mantenimiento físico de los cables.</li>
             </ul>
         </div>
+    </div>
+</section>
 
-        <div class="bibliografia" id="referencias">
-            <h2>Referencias</h2>
+<!-- Medios No Guiados -->
+<section id="noguiados">
+    <div class="tarjeta">
+        <h2>Medios No Guiados (Sin Cables)</h2>
+        <p> En los medios no guiados, la señal viaja por el aire usando ondas electromagnéticas. Ejemplos: radio, microondas y satélite. Son muy usados en telefonía móvil, televisión satelital y Wi-Fi. </p>
+        <img src="https://williantab.weebly.com/uploads/7/9/3/1/79316810/3837671_orig.jpg" alt="Comunicación inalámbrica">
+        <div class="ventajas">
+            <h3>Ventajas</h3>
             <ul>
-                <li>De datos, U. de A. T. (s/f). Medios de Transmisión: Guiados y no guiados. Core.ac.uk. Recuperado el 24 de septiembre de 2025, de <a href="https://core.ac.uk/download/pdf/80532101.pdf" target="_blank">https://core.ac.uk/download/pdf/80532101.pdf</a></li>
-                <li>De transmisión habrá medios guiados y medios no guiados, D. de L. M. (s/f). Medios Guiados y no Guiados. Edu.ar. Recuperado el 24 de septiembre de 2025, de <a href="https://educacion.sanjuan.edu.ar/mesj/LinkClick.aspx?fileticket=ytxlALao6Aw%3D&tabid=678&mid=1743" target="_blank">https://educacion.sanjuan.edu.ar/mesj/LinkClick.aspx?fileticket=ytxlALao6Aw%3D&tabid=678&mid=1743</a></li>
-                <li>Transmisión, M. (s/f). Medios de Transmisión. Buap.mx. Recuperado el 24 de septiembre de 2025, de <a href="https://www.cs.buap.mx/~iolmos/redes/6_Medios_Guiados_NoGuiados.pdf" target="_blank">https://www.cs.buap.mx/~iolmos/redes/6_Medios_Guiados_NoGuiados.pdf</a></li>
+                <li>Fácil instalación y movilidad.</li>
+                <li>Cobertura amplia sin necesidad de cables.</li>
+                <li>Acceso en lugares remotos.</li>
+            </ul>
+            <h3>Desventajas</h3>
+            <ul>
+                <li>Menor seguridad (riesgo de interferencias).</li>
+                <li>Velocidad más limitada comparada con fibra óptica.</li>
+                <li>Pueden verse afectados por el clima.</li>
             </ul>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p><b>Equipo 1:</b> Alan Ramírez Melo, Karen Yaritza Montero Orosco |
-        <b>Materia:</b> Telecomunicaciones |
-        <b>Tema:</b> Tipos de Canales de Comunicación</p>
-    </footer>
+<!-- Cuestionamientos y Referencias lado a lado -->
+<section class="cuestion-ref-contenedor">
+    <div class="cuestionamientos" id="cuestionamientos">
+        <h2>Cuestionamientos Éticos, Ecológicos y Sociales</h2>
+        <p>El uso de canales de comunicación plantea varios cuestionamientos:</p>
+        <ul>
+            <li><b>Ético:</b> ¿Cómo proteger la privacidad y seguridad de los datos transmitidos por estos canales?</li>
+            <li><b>Ecológico:</b> ¿Qué hacer con los desechos electrónicos y el impacto ambiental de antenas y cables?</li>
+            <li><b>Histórico:</b> ¿Cómo han transformado la historia de la humanidad las telecomunicaciones desde el telégrafo hasta la fibra óptica?</li>
+            <li><b>Político:</b> ¿Qué papel juegan los gobiernos en garantizar acceso equitativo a la comunicación?</li>
+            <li><b>Económico:</b> ¿Cómo reducir la brecha digital que afecta a comunidades rurales y de bajos recursos?</li>
+        </ul>
+    </div>
+    <div class="bibliografia" id="referencias">
+        <h2>Referencias</h2>
+        <ul>
+            <li>De datos, U. de A. T. (s/f). Medios de Transmisión: Guiados y no guiados. Core.ac.uk. Recuperado el 24 de septiembre de 2025, de <a href="https://core.ac.uk/download/pdf/80532101.pdf" target="_blank">https://core.ac.uk/download/pdf/80532101.pdf</a></li>
+            <li>De transmisión habrá medios guiados y medios no guiados, D. de L. M. (s/f). Medios Guiados y no Guiados. Edu.ar. Recuperado el 24 de septiembre de 2025, de <a href="https://educacion.sanjuan.edu.ar/mesj/LinkClick.aspx?fileticket=ytxlALao6Aw%3D&tabid=678&mid=1743" target="_blank">https://educacion.sanjuan.edu.ar/mesj/LinkClick.aspx?fileticket=ytxlALao6Aw%3D&tabid=678&mid=1743</a></li>
+            <li>Transmisión, M. (s/f). Medios de Transmisión. Buap.mx. Recuperado el 24 de septiembre de 2025, de <a href="https://www.cs.buap.mx/~iolmos/redes/6_Medios_Guiados_NoGuiados.pdf" target="_blank">https://www.cs.buap.mx/~iolmos/redes/6_Medios_Guiados_NoGuiados.pdf</a></li>
+        </ul>
+    </div>
+</section>
 
+<footer>
+    <p><b>Equipo 1:</b> Alan Ramírez Melo, Karen Yaritza Montero Orosco | <b>Materia:</b> Telecomunicaciones | <b>Tema:</b> Tipos de Canales de Comunicación</p>
+</footer>
 </body>
 </html>
