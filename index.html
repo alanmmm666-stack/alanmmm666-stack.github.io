@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<!-- Meta viewport añadido para que los móviles escalen correctamente -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Canales de Comunicación en Telecomunicaciones</title>
 <style>
@@ -37,6 +36,7 @@ nav a {
 nav a:hover {
     color: #00b4d8;
 }
+
 header {
     background: #0077b6;
     color: white;
@@ -45,7 +45,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    margin-top: 50px; /* para no quedar debajo de nav */
+    margin-top: 50px;
 }
 header img {
     height: 60px;
@@ -53,6 +53,7 @@ header img {
 header h1 {
     margin: 0;
 }
+
 section {
     padding: 30px;
     margin-top: 30px;
@@ -151,11 +152,12 @@ footer {
     margin: 20px auto;
 }
 
-/* --------- RESPONSIVE PARA CELULAR Y TABLET (ORIGINAL) --------- */
+/* --------- RESPONSIVE PARA CELULAR Y TABLET --------- */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
         gap: 10px;
     }
 
@@ -164,98 +166,32 @@ footer {
         text-align: center;
     }
 
+    /* Mantener dos columnas incluso en móvil */
     .contenedor,
     .video-contenedor,
     .cuestion-ref-contenedor {
-        grid-template-columns: 1fr; /* Una sola columna */
-    }
-
-    iframe {
-        height: 180px; /* Video más chico */
-    }
-
-    .tarjeta img,
-    .video-imagen img {
-        height: auto; /* Ajusta imágenes sin deformarlas */
-    }
-}
-
-/* ---------------- OVERRIDE: FORZAR 2 COLUMNAS EN MOVIL ---------------- */
-@media (max-width: 768px) {
-    .contenedor,
-    .video-contenedor,
-    .cuestion-ref-contenedor {
-        grid-template-columns: 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr;
     }
 
     .tarjeta {
-        max-width: 95% !important;
-        margin: 12px auto !important;
-        padding: 16px !important;
+        max-width: 95%;
+        margin: 12px auto;
+        padding: 16px;
     }
 
-    .tarjeta img,
-    .video-imagen img {
-        height: auto !important;
-        max-height: 240px !important;
+    .tarjeta img, .video-imagen img {
+        height: auto;
+        max-height: 240px;
     }
 
     iframe {
-        height: 200px !important;
-    }
-
-    body, html {
-        overflow-x: auto;
-    }
-
-    nav {
-        flex-direction: row !important;
-        overflow-x: auto !important;
-        white-space: nowrap !important;
-        padding: 8px 6px !important;
-    }
-    nav a { display: inline-block; padding: 6px 10px !important; }
-}
-
-/* ---------- AJUSTES ESPECÍFICOS PARA GUIADOS / NO GUIADOS / REFERENCIAS ---------- */
-@media (max-width: 768px) {
-    /* Medios guiados y no guiados */
-    #guiados .tarjeta,
-    #noguiados .tarjeta {
-        max-width: 95% !important;
-        margin: 15px auto !important;
-        padding: 18px !important;
-        text-align: center;
-    }
-
-    /* Cuestionamientos y referencias: una sola columna en móvil */
-    .cuestion-ref-contenedor {
-        grid-template-columns: 1fr !important;
-        max-width: 95% !important;
-        margin: 15px auto !important;
-    }
-
-    .cuestionamientos,
-    .bibliografia {
-        padding: 16px !important;
-        text-align: left;
-    }
-
-    .cuestionamientos h2,
-    .bibliografia h2 {
-        font-size: 1.3rem;
-    }
-
-    .bibliografia ul li {
-        word-wrap: break-word;
-        font-size: 0.95rem;
+        height: 200px;
     }
 }
 </style>
 </head>
 <body>
 
-<!-- Barra de navegación -->
 <nav>
     <a href="#introduccion">Introducción</a>
     <a href="#video">Video</a>
@@ -265,7 +201,6 @@ footer {
     <a href="#referencias">Referencias</a>
 </nav>
 
-<!-- Header con imagen al lado del título -->
 <header>
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiGu50YCh2FH5XA1ZuN5x0ANWn-F6jBpRDHw&s" alt="Icono telecomunicaciones">
     <div>
@@ -274,7 +209,6 @@ footer {
     </div>
 </header>
 
-<!-- Introducción -->
 <section id="introduccion">
     <div class="tarjeta">
         <h2>Introducción</h2>
@@ -289,7 +223,6 @@ footer {
     </div>
 </section>
 
-<!-- Video explicativo con imagen al lado -->
 <section id="video">
     <div class="video-contenedor">
         <div class="video-box">
@@ -306,7 +239,6 @@ footer {
     </div>
 </section>
 
-<!-- Medios Guiados -->
 <section id="guiados">
     <div class="tarjeta">
         <h2>Medios Guiados (Con Cables)</h2>
@@ -333,7 +265,6 @@ footer {
     </div>
 </section>
 
-<!-- Medios No Guiados -->
 <section id="noguiados">
     <div class="tarjeta">
         <h2>Medios No Guiados (Sin Cables)</h2>
@@ -360,7 +291,6 @@ footer {
     </div>
 </section>
 
-<!-- Cuestionamientos y Referencias lado a lado -->
 <section class="cuestion-ref-contenedor">
     <div class="cuestionamientos" id="cuestionamientos">
         <h2>Cuestionamientos Éticos, Ecológicos y Sociales</h2>
@@ -389,5 +319,6 @@ footer {
     <b>Materia:</b> Telecomunicaciones |
     <b>Tema:</b> Tipos de Canales de Comunicación</p>
 </footer>
+
 </body>
 </html>
